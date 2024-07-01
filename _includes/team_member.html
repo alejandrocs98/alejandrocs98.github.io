@@ -1,0 +1,55 @@
+<html>
+
+{% assign lang = site.active_lang %}
+<div class="col-sm-4 clearfix" style="text-align:center; align:center">
+  <div style="text-align: center;">
+    <img src="{{ site.url }}{{ site.baseurl }}/assets/img/teampic/{{ include.member.photo }}" class="img-rounded img-shadow" style="width: 95%; max-width: 400px; border-radius: 50%; margin-bottom: 10px;" />
+  </div>
+  
+  {% if include.member.website != nil %}
+    <h3><a target="_blank" href="{{ include.member.website }}">{{ include.member.name }}</a> {% if include.member.country != "co" %}<span class="fi fi-{{ include.member.country }}"></span>{% endif %}</h3>
+  {% else %}
+    <h3>{{ include.member.name }} {% if include.member.country != "co" %}<span class="fi fi-{{ include.member.country }}"></span>{% endif %}</h3>
+  {% endif %}
+  <p style="text-align: center; font-size: 125%; margin-bottom: 0px;">
+    <a target="_blank" href="mailto:{{ include.member.email }}" class="waves-effect waves-teal btn-flat my-email-link" data-tooltip="email" ><i class="fas fa-envelope"></i></a>
+    {% if include.member.cv %} - <a target="_blank" href="{{ site.url }}{{ site.baseurl }}/assets/img/teamcv/{{ include.member.cv }}"><i class="ai ai-cv"></i></a> {% endif %}
+    {% if include.member.scholarusername %} - <a target="_blank" href="http://scholar.google.com/citations?user={{ include.member.scholarusername }}" class="waves-effect waves-teal btn-flat my-google-scholar-link" data-tooltip="google scholar" ><i class="ai ai-google-scholar"></i></a> {% endif %}
+    {% if include.member.resgateusername %} - <a target="_blank" href="http://www.researchgate.net/profile/{{ include.member.resgateusername }}" class="waves-effect waves-teal btn-flat my-researchgate-link" data-tooltip="researchgate" ><i class="ai ai-researchgate"></i> </a> {% endif %}
+    {% if include.member.mendeleyusername %} - <a target="_blank" href="https://www.mendeley.com/profiles/{{ include.member.mendeleyusername }}" class="waves-effect waves-teal btn-flat my-mendeley-link" data-tooltip="mendeley" ><i class="ai ai-mendeley"></i></a> {% endif %}
+    {% if include.member.orcidusername %} - <a target="_blank" href="http://orcid.org/{{ include.member.orcidusername }}" class="waves-effect waves-teal btn-flat my-orcid-link" data-tooltip="orcid"><i class="ai ai-orcid"></i></a> {% endif %}
+    {% if include.member.publonsusername %} - <a target="_blank" href="https://publons.com/a/{{ include.member.publonsusername }}" class="waves-effect waves-teal btn-flat my-publons-link" data-tooltip="publons"><i class="ai ai-publons"></i></a> {% endif %}
+    {% if include.member.linkedinusername %} - <a target="_blank" href="http://www.linkedin.com/in/{{ include.member.linkedinusername }}" class="waves-effect waves-teal btn-flat my-linkedin-link" data-tooltip="linkedin"><i class="fa-brands fa-linkedin"></i></a> {% endif %}
+    {% if include.member.twitterusername %} - <a target="_blank" href="https://twitter.com/{{ include.member.twitterusername }}" class="waves-effect waves-teal btn-flat my-twitter-link" data-tooltip="twitter"><i class="fa-brands fa-twitter"></i></a> {% endif %}
+    {% if include.member.githubusername %} - <a target="_blank" href="https://github.com/{{ include.member.githubusername }}" class="waves-effect waves-teal btn-flat my-github-link" data-tooltip="github"><i class="fa-brands fa-github"></i></a> {% endif %}
+    {% if include.member.spotifyusername  %} - <a target="_blank" href="https://open.spotify.com/artist/{{ include.member.spotifyusername }}" class="waves-effect waves-teal btn-flat my-spotify-link"  data-tooltip="spotify"><i class="fa-brands fa-spotify"></i></a> {% endif %}
+    {% if include.member.stravausername  %} - <a target="_blank" href="https://www.strava.com/athletes/{{ include.member.stravausername }}" class="waves-effect waves-teal btn-flat my-strava-link"  data-tooltip="strava"><i class="fa-brands fa-strava"></i></a> {% endif %}
+  </p>
+  <p style="text-align: left; margin-bottom: 0px;">
+    <strong>{{ include.member.position }}{% if include.member.affiliation != nil %}, {{ include.member.affiliation }}{% endif %}</strong> (<em>{{ site.started[lang] }} {{ include.member.started }}</em>)
+  </p>
+  <p style="text-align: left; font-size: 95%; color: #676767; margin-bottom: 0px;">  
+    {% if include.member.education4 != nil %}
+      • {{ include.member.education1 }} 
+      <br>• {{ include.member.education2 }} 
+      <br>• {{ include.member.education3 }} 
+      <br>• {{ include.member.education4 }}
+    {% elsif include.member.education3 != nil %}
+    • {{ include.member.education1 }}
+    <br>• {{ include.member.education2 }} 
+    <br>• {{ include.member.education3 }} 
+    {% elsif include.member.education2 != nil %}
+      • {{ include.member.education1 }}
+      <br>• {{ include.member.education2 }}
+    {% elsif include.member.education1 != nil %}
+      • {{ include.member.education1 }}
+    {% endif %}
+  </p>
+  {% if include.member.interests != nil %}
+  <p style="text-align: left; margin-bottom: 0px;">
+    <strong>{{ site.interests[lang] }}:</strong> {{ include.member.interests }}
+  </p>
+  {% endif %}
+</div>
+
+</html>

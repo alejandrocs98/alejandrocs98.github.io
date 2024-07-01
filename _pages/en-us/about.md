@@ -1,27 +1,36 @@
 ---
 page_id: about
 layout: about
-title: about
+title: Home
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href="https://cienciasbiologicas.uniandes.edu.co">Biological Sciences Department</a>, <a href="https://uniandes.edu.co/">Universidad de los Andes</a> <span class="fi fi-co"></span>
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: bcem_logo_nt.png
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+  more_info: 
 
 news: true # includes a list of news items
-latest_posts: true # includes a list of the newest posts
-selected_papers: true # includes a list of papers marked as "selected={true}"
+latest_posts: false # includes a list of the newest posts
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Welcome to the homepage of the Research Group on Computational Biology and Microbial Ecology (BCEM) at Uniandes. [We]({{ site.url }}{{ site.baseurl }}/team) are a multidisciplinary group involved in the development of computational biology. We work in diverse research areas such as microbial ecology, genomics, population genetics and systems biology.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/multi-language-al-folio/publications/) automatically.
+The BCEM is a research group based on principles of excellence and scientific rigor, ensuring high-quality scientific research. Our members are characterized by their passion and scientific curiosity, as well as by their high level of commitment and discipline. As researchers we are based on mutual respect, based on a principle of empathy and solidarity with others, recognizing each other in our uniqueness, that is, in the difference, implying respect and the search for equity. <br> 
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+[Here]({{ site.url }}{{ site.baseurl }}/research) is a more detailed description of our research interests.
+
+<div style="text-align: center; margin-top: 10px">
+  <figure class="fourth">
+    <img src="{{ site.url | absolute_url }}{{ site.baseurl }}/assets/img/homeslides/DSC_1551.jpg" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  </figure>
+</div>
+
+<figure class="fourth" style="text-align: center;">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/img/logopic/Uniandes.png" style="width: 225px">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/img/logopic/Logo_DCB.png" style="width: 175px">
+  <img src="{{ site.url }}{{ site.baseurl }}/assets/img/logopic/cabana.thumbnail" style="width: 225px">
+</figure>

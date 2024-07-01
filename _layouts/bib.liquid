@@ -47,7 +47,7 @@
   <!-- Entry bib key -->
   <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
     <!-- Title -->
-    <div class="title">{{ entry.title }}</div>
+    <div class="title"><a target="_blank" style="font-size: 115%;" href="http://doi.org/{{ entry.doi }}">{{ entry.title }}</a></div>
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}
@@ -166,9 +166,10 @@
     <div class="periodical">
       {{ periodical | strip }}
     </div>
-    <div class="periodical">
+    <span style="display:inline;" class="__dimensions_badge_embed__" data-doi="{{ entry.doi }}" data-style="small_rectangle"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+    <!-- <div class="periodical">
       {{ entry.note | strip }}
-    </div>
+    </div> -->
 
     <!-- Links/Buttons -->
     <div class="links">

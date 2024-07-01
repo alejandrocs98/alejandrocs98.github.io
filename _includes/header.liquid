@@ -4,7 +4,9 @@
     <div class="container">
       {% if page.permalink != '/' %}
         <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
-          {% if site.title == 'blank' %}
+          {% if site.logo != nil %}
+            <img class="navbar" src="{{ site.logo | relative_url }}" alt="{{ site.title }}" width="150" height="50"></img>
+          {% else if site.title == nil %}
             {% if site.first_name %}
               <span class="font-weight-bold">
                 {{- site.first_name -}}
@@ -17,7 +19,18 @@
               {{- site.last_name -}}
             {% endif %}
           {% else %}
-            {{- site.title -}}
+            <!-- {{- site.title -}} -->
+            {% if site.first_name %}
+              <span class="font-weight-bold">
+                {{- site.first_name -}}
+              </span>
+            {% endif %}
+            {% if site.middle_name %}
+              {{- site.middle_name -}}
+            {% endif %}
+            {% if site.last_name %}
+              {{- site.last_name -}}
+            {% endif %}
           {% endif %}
         </a>
       {% elsif site.enable_navbar_social %}
@@ -47,14 +60,14 @@
           {% endfor %}
 
           <!-- About -->
-          <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
+          <!-- <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
             <a class="nav-link" href="{{ '/' | relative_url }}">
               {{- about_title }}
               {% if page.permalink == '/' %}
                 <span class="sr-only">(current)</span>
               {% endif %}
             </a>
-          </li>
+          </li> -->
 
           <!-- Other pages -->
           {% assign sorted_pages = site.pages | sort: 'nav_order' %}
@@ -107,17 +120,9 @@
               {% endif %}
             {% endif %}
           {% endfor %}
-          {% if site.search_enabled %}
-            <!-- Search -->
-            <li class="nav-item">
-              <button id="search-toggle" title="Search" onclick="openSearchModal()">
-                <span class="nav-link">ctrl k <i class="ti ti-search"></i></span>
-              </button>
-            </li>
-          {% endif %}
           <!-- Toogle language -->
           {% if site.languages.size >= 2 %}
-            {% if site.languages.size == 2 %}
+            {% if site.languages.size == 3 %}
               {% if site.active_lang == site.languages.first %}
                 {% assign other_language = site.languages.last %}
               {% else %}
@@ -154,7 +159,7 @@
                   aria-expanded="false"
                 >
                   {% if site.country_flag %}
-                    <span class="fi fi-{{ site.active_lang | split: "-" | last }}"></span>
+                    {{- site.active_lang | split: "-" | first | upcase }} <span class="fi fi-{{ site.active_lang | split: "-" | last }}"></span>
                   {% else %}
                     {{- site.active_lang | upcase }}
                   {%- endif -%}
@@ -172,7 +177,7 @@
                       {% if l == site.default_lang %}
                         <a class="dropdown-item" {% static_href -%} href="{{ site.baseurl }}{{ page.url }}" {%- endstatic_href %}>
                           {% if site.country_flag %}
-                            <span class="fi fi-{{ l | split: "-" | last }}"></span>
+                            {{- l | split: "-" | first | upcase }} <span class="fi fi-{{ l | split: "-" | last }}"></span>
                           {% else %}
                             {{ l | upcase }}
                           {%- endif -%}
@@ -180,7 +185,7 @@
                       {% else %}
                         <a class="dropdown-item" {% static_href -%} href="{{ site.baseurl }}/{{ l }}{{ page.url }}" {%- endstatic_href %}>
                           {% if site.country_flag %}
-                            <span class="fi fi-{{ l | split: "-" | last }}"></span>
+                            {{- l | split: "-" | first | upcase }} <span class="fi fi-{{ l | split: "-" | last }}"></span>
                           {% else %}
                             {{ l | upcase }}
                           {%- endif -%}
@@ -193,13 +198,21 @@
               </li>
             {% endif %}
           {% endif %}
+          <!-- Toogle theme mode -->
           {% if site.enable_darkmode %}
-            <!-- Toogle theme mode -->
             <li class="toggle-container">
               <button id="light-toggle" title="Change theme">
                 <i class="ti ti-sun-moon" id="light-toggle-system"></i>
                 <i class="ti ti-moon-filled" id="light-toggle-dark"></i>
                 <i class="ti ti-sun-filled" id="light-toggle-light"></i>
+              </button>
+            </li>
+          {% endif %}
+          <!-- Search -->
+          {% if site.search_enabled %}
+            <li class="nav-item">
+              <button id="search-toggle" title="Search" onclick="openSearchModal()">
+                <span class="nav-link"> <i class="ti ti-search"></i></span>
               </button>
             </li>
           {% endif %}
